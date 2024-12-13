@@ -21,4 +21,12 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  // ssr: {
+  //   noExternal: [
+  //     "@mui/material",
+  //     "@emotion/react",
+  //     "@emotion/styled",
+  //     "@mui/icons-material",
+  //   ]
+  // }
 });
