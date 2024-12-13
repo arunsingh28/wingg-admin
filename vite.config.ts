@@ -1,6 +1,7 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { cjsInterop } from 'vite-plugin-cjs-interop';
 
 declare module "@remix-run/node" {
   interface Future {
@@ -20,13 +21,22 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    cjsInterop({
+      dependencies: [
+        '@emotion/*',
+      ],
+    }),
   ],
-  // ssr: {
-  //   noExternal: [
-  //     "@mui/material",
-  //     "@emotion/react",
-  //     "@emotion/styled",
-  //     "@mui/icons-material",
-  //   ]
-  // }
+  resolve:{
+    alias: {
+    }
+  },
+  ssr: {
+
+  },
+  server:{
+    hmr:{
+      overlay: false
+    }
+  }
 });
