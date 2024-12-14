@@ -6,6 +6,8 @@ import type { MenuProps } from "antd";
 
 import { useLocation, Link } from "@remix-run/react";
 
+import { routes } from "~/router/routes";
+
 const Sidebar = () => {
   const location = useLocation();
 
@@ -13,17 +15,17 @@ const Sidebar = () => {
     {
       key: "/dashboard",
       icon: <IoMdHome />,
-      label: <Link to="/dashboard">Dashboard</Link>,
+      label: <Link to={routes.DASHBOARD.INDEX}>Dashboard</Link>,
     },
     {
       key: "/permissions",
       icon: <IoShieldHalfSharp />,
-      label: <Link to="/permissions">Permissions</Link>,
+      label: <Link to={routes.DASHBOARD.PERMISSIONS}>Permissions</Link>,
     },
     {
       key: "/email-templates",
       icon: <TbTemplate />,
-      label: <Link to="/email-templates">Email Templates</Link>,
+      label: <Link to={routes.DASHBOARD.EMAIL_TEMPLATES}>Email Templates</Link>,
     },
   ];
 

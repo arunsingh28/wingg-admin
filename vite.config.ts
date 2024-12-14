@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { cjsInterop } from "vite-plugin-cjs-interop";
 
-import { configureRoutes } from "./routes.config";
+import { configureRoutes } from "./app/router/routes.config";
 
 declare module "@remix-run/node" {
   interface Future {
