@@ -13,17 +13,17 @@ const Sidebar = () => {
 
   const items: MenuProps["items"] = [
     {
-      key: "/dashboard",
+      key: routes.DASHBOARD.INDEX,
       icon: <IoMdHome />,
       label: <Link to={routes.DASHBOARD.INDEX}>Dashboard</Link>,
     },
     {
-      key: "/permissions",
+      key: routes.DASHBOARD.PERMISSIONS,
       icon: <IoShieldHalfSharp />,
       label: <Link to={routes.DASHBOARD.PERMISSIONS}>Permissions</Link>,
     },
     {
-      key: "/email-templates",
+      key: routes.DASHBOARD.EMAIL_TEMPLATES,
       icon: <TbTemplate />,
       label: <Link to={routes.DASHBOARD.EMAIL_TEMPLATES}>Email Templates</Link>,
     },
