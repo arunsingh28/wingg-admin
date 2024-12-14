@@ -3,36 +3,38 @@ import { IoMdHome } from "react-icons/io";
 import { IoShieldHalfSharp } from "react-icons/io5";
 import { TbTemplate } from "react-icons/tb";
 import type { MenuProps } from "antd";
-import { Link } from "@remix-run/react";
 
+import { useLocation, Link } from "@remix-run/react";
 
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    icon: <IoMdHome />,
-    label: <Link to={"/dash/home"}>Dashboard</Link>,
-  },
-  {
-    key: "2",
-    icon: <IoShieldHalfSharp />,
-    label: <Link to={"/dash/permissions"}>Permissions</Link>,
-  },
-  {
-    key: "3",
-    icon: <TbTemplate />,
-    label:<Link to={"/dash/email-templates"}>Email templates</Link>,
-  },
-];
+const Sidebar = () => {
+  const location = useLocation();
 
-const sidebar = () => {
+  const items: MenuProps["items"] = [
+    {
+      key: "/dashboard",
+      icon: <IoMdHome />,
+      label: <Link to="/dashboard">Dashboard</Link>,
+    },
+    {
+      key: "/permissions",
+      icon: <IoShieldHalfSharp />,
+      label: <Link to="/permissions">Permissions</Link>,
+    },
+    {
+      key: "/email-templates",
+      icon: <TbTemplate />,
+      label: <Link to="/email-templates">Email Templates</Link>,
+    },
+  ];
+
   return (
     <Menu
       theme="dark"
       mode="inline"
-      defaultSelectedKeys={["1"]}
+      selectedKeys={[location.pathname]} // Highlight the current route
       items={items}
     />
   );
 };
 
-export default sidebar;
+export default Sidebar;

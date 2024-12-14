@@ -1,7 +1,9 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { cjsInterop } from 'vite-plugin-cjs-interop';
+import { cjsInterop } from "vite-plugin-cjs-interop";
+
+import { configureRoutes } from "./routes.config";
 
 declare module "@remix-run/node" {
   interface Future {
@@ -19,24 +21,20 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
       },
+      routes: configureRoutes,
     }),
     tsconfigPaths(),
     cjsInterop({
-      dependencies: [
-        '@emotion/*',
-      ],
+      dependencies: ["@emotion/*"],
     }),
   ],
-  resolve:{
-    alias: {
-    }
+  resolve: {
+    alias: {},
   },
-  ssr: {
-
+  ssr: {},
+  server: {
+    hmr: {
+      overlay: false,
+    },
   },
-  server:{
-    hmr:{
-      overlay: false
-    }
-  }
 });

@@ -69,7 +69,7 @@ export default function App() {
                 }}
               />
             </Header>
-            <Content className="bg-gray-950">
+            <Content>
               <Outlet />
             </Content>
           </Layout>
