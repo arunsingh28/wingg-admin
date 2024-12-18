@@ -3,6 +3,7 @@ export const routes = {
     INDEX: "/dashboard",
     PERMISSIONS: "/permissions",
     EMAIL_TEMPLATES: "/email-templates",
+    USERS: "/users",
   },
   AUTH: {
     LOGIN: "/login",

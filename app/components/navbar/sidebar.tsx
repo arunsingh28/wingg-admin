@@ -1,6 +1,7 @@
 import { Menu } from "antd";
 import { IoMdHome } from "react-icons/io";
 import { IoShieldHalfSharp } from "react-icons/io5";
+import { FaRegUser } from "react-icons/fa";
 import { TbTemplate } from "react-icons/tb";
 import type { MenuProps } from "antd";
 
@@ -12,6 +13,11 @@ const Sidebar = () => {
   const location = useLocation();
 
   const items: MenuProps["items"] = [
+    {
+      key: routes.DASHBOARD.USERS,
+      icon: <FaRegUser />,
+      label: <Link to={routes.DASHBOARD.USERS}>Users</Link>,
+    },
     {
       key: routes.DASHBOARD.INDEX,
       icon: <IoMdHome />,
